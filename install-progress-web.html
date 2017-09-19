@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Your WiLine Installation Progress</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu" rel="stylesheet">
     <style>
         html, body {
@@ -21,10 +21,17 @@
             display: block;
             clear: both;
         }
+        #head {
+            position: relative;
+        }
+        body {
+            height: 100%;
+            overflow: none;
+            background-color: #B8D4F1;
+        }
         .main-header {
             top: 0;
-            position: absolute;
-            width:100%;
+            position: relative;
             display: block;
             margin: 0;
             padding: 0;
@@ -60,9 +67,68 @@
         .bg-secondary {
             position: relative;
             display: block;
-            background-color: aliceblue;
+            background-color: #b8d4f1!important;
             color: #074481;
             clear: both;
+        }
+        
+        /* Progress Bar */
+
+        .progress-bars {
+            margin-bottom: 24px
+        }
+
+        .progress {
+            height: auto;
+            -webkit-box-shadow: none;
+            box-shadow: none
+        }
+
+        .progress-bar {
+            background: #47b475;
+            border: none;
+            border-radius: 20px; 
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important
+        }
+
+        .progress-2 {
+            height: auto;
+            background: 0 0;
+            text-align: center;
+            margin-bottom: 8px
+        }
+
+        .progress-2 span {
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 8px
+        }
+
+        .progress-2 .bar-holder {
+            height: 16px;
+            border-radius: 8px;
+            border: 1px solid #074481
+        }
+
+        .bg-primary .progress-2 .bar-holder {
+            border-color: #7272ee
+        }
+        .progress span.title {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.8rem;
+            line-height: 24px;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        /* margine & paddings */
+        .mt24 {
+            margin-top: 24px;
         }
     </style>
     
@@ -78,8 +144,27 @@
             </div>
         </section>
         <section id="main">
-            <div class="container bg-secondary">
-                <p>test</p>
+            <div class="container-fluid bg-secondary" id="main-container">
+                <div class="row mt24">
+                   <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 text-center">
+                        <div class="progress-bars">
+                            <div class="progress progress-2">
+                                <div class="bar-holder">
+                                    <div class="progress-bar" data-progress="80" style="width: 90%;"></div>
+                                </div>
+                                <span class="title">Installation Progress</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        Zone 1
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        Zone 2
+                    </div>
+                </div>
             </div>
         </section>
     </header>
