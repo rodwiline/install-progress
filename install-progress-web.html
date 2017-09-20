@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Your WiLine Installation Progress</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu" rel="stylesheet">
     <style>
         html, body {
@@ -23,11 +24,22 @@
         }
         #head {
             position: relative;
+            background-color: #074481;
         }
         body {
             height: 100%;
             overflow: none;
             background-color: #B8D4F1;
+        }
+        .main-title h4 {
+            font-size: 3.5vw;
+        }
+        .cust-info {
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+        .bold {
+            font-weight: 600;
         }
         .main-header {
             top: 0;
@@ -71,7 +83,197 @@
             color: #074481;
             clear: both;
         }
+        .client>.title {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #fff;
+            margin: none;
+            border: none;
+            margin-top: 32px;
+        }
+        .status>.title {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #fff;
+            margin: none;
+            border: none;
+            margin-top: 32px;
+        }
+        .status>span {
+            padding-top: 24px;
+        }
+        .client-container {
+            color: #074481;
+            margin-top: 8px;
+            background-color: #fff;
+            border: 1px solid #c3c3c3;
+        }
+        .info {
+            min-height: 160px;
+        }
+        table {
+            margin: none;
+            border: none;
+        }
+        td, th {
+            padding: 0px 5px;
+            font-size: 16px;
+            line-height: 32px;
+        }
+        .status td,
+        .status th {
+            padding: 0px 5px;
+            margin: 0;
+            font-size: 16px;
+            line-height: 18px;
+        }
+        .info span {
+            display: block;
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+        @media screen and (min-width: 992px) {
+            td, th {
+                font-size: 1.2vw;
+                line-height: 2vw;
+            }
+            .status td,
+            .status th {
+                font-size: 1.2vw;
+                line-height: 1.3vw;
+            }
+            .main-title h4 {
+                font-size: 3vw;
+            }
+        }
+        @media screen and (min-width: 1309px) {
+            td, th {
+                font-size: 1.1vw;
+                line-height: 2vw;
+            }
+            .status td,
+            .status th {
+                font-size: 1.1vw;
+                line-height: 1.2vw;
+            }
+            .main-title h4 {
+                font-size: 2.5vw;
+            }
+        }
+        @media screen and (min-width: 1450px) {
+            td, th {
+                font-size: 16px;
+                line-height: 32px;
+            }
+            .status td,
+            .status th {
+                font-size: 16px;
+                line-height: 17px;
+            }
+        }
         
+        /* Checkboxes */ 
+        
+
+        .label__checkbox {
+          display: none;
+        }
+
+        .label__check {
+          display: inline-block;
+          border-radius: 50%;
+          border: 5px solid rgba(0,0,0,0.1);
+          background: white;
+          vertical-align: middle;
+          margin-right: 20px;
+          width: 2em;
+          height: 2em;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: border .3s ease;
+
+          i.icon {
+            opacity: 0.2;
+            font-size: ~'calc(1rem + 1vw)';
+            color: transparent;
+            transition: opacity .3s .1s ease;
+            -webkit-text-stroke: 3px rgba(0,0,0,.5);
+          }
+
+          &:hover {
+            border: 5px solid rgba(0,0,0,0.2);
+          }
+        }
+
+        .label__checkbox:checked + .label__text .label__check {
+          animation: check .5s cubic-bezier(0.895, 0.030, 0.685, 0.220) 1 forwards;
+
+          .icon {
+            opacity: 1;
+            transform: scale(0);
+            color: white;
+            -webkit-text-stroke: 0;
+            animation: icon .3s cubic-bezier(1.000, 0.008, 0.565, 1.650) .1s 1 forwards;
+          }
+        }
+
+        .center {
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%,-50%);
+        }
+
+        @keyframes icon {
+          from {
+            opacity: 0;
+            transform: scale(0.3);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1)
+          }
+        }
+
+        @keyframes check {
+          0% {
+            width: 1.5em;
+            height: 1.5em;
+            border-width: 5px;
+          }
+          10% {
+            width: 1.5em;
+            height: 1.5em;
+            opacity: 0.1;
+            background: rgba(0,0,0,0.2);
+            border-width: 15px;
+          }
+          12% {
+            width: 1.5em;
+            height: 1.5em;
+            opacity: 0.4;
+            background: rgba(0,0,0,0.1);
+            border-width: 0;
+          }
+          50% {
+            width: 2em;
+            height: 2em;
+            background: #00d478;
+            border: 0;
+            opacity: 0.6;
+          }
+          100% {
+            width: 2em;
+            height: 2em;
+            background: #00d478;
+            border: 0;
+            opacity: 1;
+          }
+        }
+
         /* Progress Bar */
 
         .progress-bars {
@@ -122,6 +324,7 @@
             letter-spacing: 2px;
             display: inline-block;
             margin-top: 8px;
+            color: #fff;
         }
         .text-center {
             text-align: center;
@@ -130,44 +333,185 @@
         .mt24 {
             margin-top: 24px;
         }
+        .mt48 {
+            margin-top: 48px;
+        }
     </style>
     
 </head>
 <body>
     <header>
         <section id="head">
-            <div class="container main-header col-xs-12">
+            <div class="container main-header">
                <div class="logo">
                    <a href="index.html" title="WiLine Business Internet Service Providers"><img alt="High Speed Internet Providers in California" src="img/logo-sm2.svg" height="95%" title="WiLine Networks California - Logo" class="logo logo-dark" id="logo" onerror="this.onerror=null; this.src='img/wiline-logo-sm2.png'"></a>
                </div>
-               <div class="right bottom title-tag"><h4 class="uppercase light">installation progress</h4></div>
+               <div class="right bottom title-tag main-title"><h4 class="uppercase light">Your installation progress</h4></div>
             </div>
         </section>
+    </header>
         <section id="main">
-            <div class="container-fluid bg-secondary" id="main-container">
+            <div class="container bg-secondary" id="main-container">
                 <div class="row mt24">
                    <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 text-center">
                         <div class="progress-bars">
                             <div class="progress progress-2">
+                               <span class="title">Service Installation Status</span>
                                 <div class="bar-holder">
                                     <div class="progress-bar" data-progress="80" style="width: 90%;"></div>
                                 </div>
-                                <span class="title">Installation Progress</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                        Zone 1
+                    <div class="col-md-8 col-sm-12 client">
+                      <div class="col-xs-12 title">Customer Information:</div>
+                       <div class="col-xs-12 client-container">
+                         <table class="cust-info">
+                             <tr>
+                                 <th>Customer:</th>
+                                 <td> Chan Zucherberg Biohub, Inc.</td>
+                             </tr>
+                             <tr>
+                                 <th>Customer Service Agreement Number:</th>
+                                 <td> 973283</td>
+                             </tr>
+                             <tr>
+                                 <th>Installation Contact:</th>
+                                 <td> Rakesh Mehta, 650-222-1538</td>
+                             </tr>
+                             <tr>
+                                 <th>Installation Address:</th>
+                                 <td> 499 Illinois St. <br>San Francisco</td>
+                             </tr>
+                             <tr>
+                                 <th>Service:</th>
+                                 <td> WiNet Data 2000 Mbps (Customized)</td>
+                             </tr>
+                         </table>
+                       </div>
+                       <div class="col-xs-12 title mt48">Customer Information:</div>
+                       <div class="col-xs-12 client-container info">
+                           <span>Your installation is schedulled for 09/19/17 @ 3PM PST.</span>
+                       </div>
                     </div>
-                    <div class="col-md-6 col-sm-12">
-                        Zone 2
+                    <div class="col-md-4 col-sm-12 status">
+                        <div class="col-xs-12 title">Installation Status:</div>
+                        <table>
+                           <tr>
+                                <td><label class="label">
+                                        <input  class="label__checkbox" type="checkbox" checked />
+                                            <span class="label__text">
+                                            <span class="label__check">
+                                            <i class="fa fa-check icon"></i>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td>Documentation Received</td>
+                            </tr>
+                            <tr>
+                                <td><label class="label">
+                                        <input  class="label__checkbox" type="checkbox" checked />
+                                            <span class="label__text">
+                                            <span class="label__check">
+                                            <i class="fa fa-check icon"></i>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td>Site Survey Completed</td>
+                            </tr>
+                            <tr>
+                                <td><label class="label">
+                                        <input  class="label__checkbox" type="checkbox" checked />
+                                            <span class="label__text">
+                                            <span class="label__check">
+                                            <i class="fa fa-check icon"></i>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                            <td>Network Design Completed</td>
+                            </tr>
+                            <tr>
+                                <td><label class="label">
+                                        <input  class="label__checkbox" type="checkbox" checked />
+                                            <span class="label__text">
+                                            <span class="label__check">
+                                            <i class="fa fa-check icon"></i>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td>Installation Plan Completed</td>
+                            </tr>
+                            <tr>
+                                <td><label class="label">
+                                        <input  class="label__checkbox" type="checkbox" checked />
+                                            <span class="label__text">
+                                            <span class="label__check">
+                                            <i class="fa fa-check icon"></i>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td>Building Installation Plan Approved</td>
+                            </tr>
+                            <tr>
+                                <td><label class="label">
+                                        <input  class="label__checkbox" type="checkbox" checked />
+                                            <span class="label__text">
+                                            <span class="label__check">
+                                            <i class="fa fa-check icon"></i>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td>Provisioning/Configuration Complete</td>
+                            </tr>
+                            <tr>
+                                <td><label class="label">
+                                        <input  class="label__checkbox" type="checkbox" checked />
+                                            <span class="label__text">
+                                            <span class="label__check">
+                                            <i class="fa fa-check icon"></i>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td>Installation Schedulled</td>
+                            </tr>
+                            <tr>
+                                <td><label class="label">
+                                        <input  class="label__checkbox" type="checkbox" />
+                                            <span class="label__text">
+                                            <span class="label__check">
+                                            <i class="fa fa-check icon"></i>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td>Installation Complete</td>
+                            </tr>
+                            <tr>
+                                <td><label class="label">
+                                        <input  class="label__checkbox" type="checkbox" />
+                                            <span class="label__text">
+                                            <span class="label__check">
+                                            <i class="fa fa-check icon"></i>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td>Certification &amp; Activation Complete</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
-        </section>
-    </header>
+        </section> 
     
     
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
