@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your WiLine Installation Progress</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu" rel="stylesheet">
+    <style>
+        html, body {
+            font-size: 16px;
+            font-family: 'Ubuntu', helvetica, sans-serif;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Oswald', helvetica, sans-serif;
+        }
+        img {
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            display: block;
+            clear: both;
+        }
+        #head {
+            position: relative;
+            background-color: #074481;
+        }
+        body {
+            height: 100%;
+            overflow: none;
+            background-color: #B8D4F1;
+        }
+        .main-title h4 {
+            font-size: 3.5vw;
+        }
+        .cust-info {
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+        .bold {
+            font-weight: 600;
+        }
+        td .description {
+            margin-bottom: 20px;
+        }
+        .main-header {
+            top: 0;
+            position: relative;
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #074481;
+            min-height: 8%;
+            max-height: 8%;
+            color: #fff;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+        .right {
+            float: right;
+        }
+        .uppercase {
+            text-transform: uppercase;
+        }
+        .light {
+            font-weight: 200;
+        }
+        .bottom {
+            vertical-align: bottom;
+        }
+        .title-tag {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 0px 15px;
+        }
+        .logo {
+            padding: 10px 15px;
+            max-width: 15vw;
+        }
+        .bg-secondary {
+            position: relative;
+            display: block;
+            background-color: #b8d4f1!important;
+            color: #074481;
+            clear: both;
+        }
+        .client>.title {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #fff;
+            margin: none;
+            border: none;
+            margin-top: 32px;
+        }
+        .status>.title {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #fff;
+            margin: none;
+            border: none;
+            margin-top: 32px;
+        }
+        .status>span {
+            padding-top: 24px;
+        }
+        .client-container {
+            color: #074481;
+            margin-top: 8px;
+            background-color: #fff;
+            border: 1px solid #c3c3c3;
+        }
+        .info {
+            min-height: 160px;
+        }
+        table {
+            margin: none;
+            border: none;
+        }
+        td, th {
+            padding: 0px 5px;
+            font-size: 16px;
+            line-height: 12px;
+        }
+        .status td,
+        .status th {
+            margin: 0;
+            font-size: 16px;
+            line-height: 12px;
+        }
+        .info span {
+            display: block;
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+        @media screen and (min-width: 992px) {
+            td, th {
+                font-size: 1.2vw;
+                line-height: 2vw;
+            }
+            .status td,
+            .status th {
+                font-size: 1.2vw;
+                line-height: 1.3vw;
+            }
+            .main-title h4 {
+                font-size: 3vw;
+            }
+        }
+        @media screen and (min-width: 1309px) {
+            td, th {
+                font-size: 1.1vw;
+                line-height: 2vw;
+            }
+            .status td,
+            .status th {
+                font-size: 1.1vw;
+                line-height: 1.2vw;
+            }
+            .main-title h4 {
+                font-size: 2.5vw;
+            }
+        }
+        @media screen and (min-width: 1450px) {
+            td, th {
+                font-size: 16px;
+                line-height: 32px;
+            }
+            .status td,
+            .status th {
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+        
+        /* Checkboxes */ 
+
+
+.install-form{
+   padding: 0;
+   counter-reset: number;
+}
+.install-form tr {
+    line-height: 24px;
+    min-height: 24px;
+    counter-increment: number;
+}
+
+.install-form  label,
+.install-form  span {
+  position: relative;
+  top: 0;
+  left:0;
+  color: #FFF;
+  font-size: 1.3em;
+  background-color: #E64545;
+  padding: .3em .6em;
+  border-radius: 50%;
+  -webkit-transition: background-color .3s, top .1s;
+  transition: background-color .3s, top .1s;
+  box-shadow: 1px 1px 1px 1px #CCC;
+}
+.install-form label::before {
+    content: counter(number)"";
+}
+
+.install-form  input[type=checkbox]{
+  background-color: #CC0000;
+  height: 0em;
+  width: 0em;
+  background: none;
+}
+.install-form  input[type=checkbox]:checked + label,
+.install-form  input[type=checkbox]:checked + span {
+  background-color: #4DA269;  
+}
+
+/* .install-form  input[type=checkbox]:checked + label:before {
+    content: '';
+} */
+
+.install-form  label:hover{
+  top: -1px;
+} 
+
+
+        /* Progress Bar */
+
+        .progress-bars {
+            margin-bottom: 24px
+        }
+
+        .progress {
+            height: auto;
+            -webkit-box-shadow: none;
+            box-shadow: none
+        }
+
+        .progress-bar {
+            background: #47b475;
+            border: none;
+            border-radius: 30px; 
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important
+        }
+
+        .progress-2 {
+            height: auto;
+            background: 0 0;
+            text-align: center;
+            margin-bottom: 8px
+        }
+
+        .progress-2 span {
+            font-size: 16px;
+            display: inline-block;
+            margin-bottom: 8px
+        }
+
+        .progress-2 .bar-holder {
+            height: 24px;
+            border-radius: 12px;
+            border: 1px solid #074481
+        }
+
+        .bg-primary .progress-2 .bar-holder {
+            border-color: #7272ee
+        }
+        .progress span.title {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 01rem;
+            line-height: 24px;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-top: 8px;
+            color: #fff;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .progress-digit {
+            margin-left: 25px;
+            padding: 0px 10px;
+            letter-spacing: 50px;
+        }
+        /* margine & paddings */
+        .mt24 {
+            margin-top: 24px;
+        }
+        .mt48 {
+            margin-top: 48px;
+        }
+        label { /* bootstrap overide */
+            margin-bottom: 15px!important;
+        }
+        .tick {
+            display: none;
+            z-index: 10!important;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <section id="head">
+            <div class="container main-header">
+               <div class="logo">
+                   <a href="index.html" title="WiLine Business Internet Service Providers"><img alt="High Speed Internet Providers in California" src="img/logo-sm2.svg" height="95%" title="WiLine Networks California - Logo" class="logo logo-dark" id="logo" onerror="this.onerror=null; this.src='img/wiline-logo-sm2.png'"></a>
+               </div>
+               <div class="right bottom title-tag main-title"><h4 class="uppercase light">Your installation progress</h4></div>
+            </div>
+        </section>
+    </header>
+        <section id="main">
+            <div class="container bg-secondary" id="main-container">
+                <div class="row mt24">
+                   <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 text-center">
+                        <div class="progress-bars">
+                            <div class="progress progress-2">
+                               <span class="title">Service Installation Status</span>
+                                <div class="bar-holder">
+                                    <div class="progress-bar" data-progress="50" style="width:80%">
+                                        <span class="progress-digit">123456789</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-12 client">
+                      <div class="col-xs-12 title">Customer Information:</div>
+                       <div class="col-xs-12 client-container">
+                         <table class="cust-info">
+                             <tr>
+                                 <th>Customer:</th>
+                                 <td> Chan Zucherberg Biohub, Inc.</td>
+                             </tr>
+                             <tr>
+                                 <th>Customer Service Agreement Number:</th>
+                                 <td> 973283</td>
+                             </tr>
+                             <tr>
+                                 <th>Installation Contact:</th>
+                                 <td> Rakesh Mehta, 650-222-1538</td>
+                             </tr>
+                             <tr>
+                                 <th>Installation Address:</th>
+                                 <td> 499 Illinois St. <br>San Francisco</td>
+                             </tr>
+                             <tr>
+                                 <th>Service:</th>
+                                 <td> WiNet Data 2000 Mbps (Customized)</td>
+                             </tr>
+                         </table>
+                       </div>
+                       <div class="col-xs-12 title mt48">Comments:</div>
+                       <div class="col-xs-12 client-container info">
+                           <span>Your installation is schedulled for 09/19/17 @ 3PM PST.</span>
+                       </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 status">
+                        <div class="col-xs-12 title">Installation Status:</div>
+                        <form action="">
+                        <table class="install-form">
+                           <tr>
+                                <td>
+                                    <input type="checkbox" name="check" id="check1" value="1" checked />
+                                    <label for="check1"></label>
+                                </td>
+                                <td class="bold description">Documentation Received</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="check" id="check2" value="2" />
+                                    <label for="check2"></label>
+                                </td>
+                                <td class="bold description">Site Survey Completed</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="check" id="check3" value="3" />
+                                    <label for="check3"></label>
+                                </td>
+                            <td class="bold description">Network Design Completed</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="check" id="check4" value="4" />
+                                    <label for="check4"></label>
+                                </td>
+                                <td class="bold description">Installation Plan Completed</td>
+                            </tr>
+                            <tr>
+                            <td>
+                                <input type="checkbox" name="check" id="check5" value="5" />
+                                <label for="check5"></label>
+                            </td>
+                                <td class="bold description">Building Installation Plan Approved</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="check" id="check6" value="6" />
+                                    <label for="check6"></label>
+                                </td>
+                                <td class="bold description">Provisioning/Configuration Complete</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="check" id="check7" value="7" />
+                                    <label for="check7"></label>
+                                </td>
+                                <td class="bold description">Installation Schedulled</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="check" id="check8" value="8" />
+                                    <label for="check8"></label>
+                                </td>
+                                <td class="bold description">Installation Complete</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="check" id="check9" value="9" />
+                                    <label for="check9"></label>
+                                </td>
+                                <td class="bold description">Certification &amp; Activation Complete</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section> 
+    
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function() {
+                function check() {
+                    if ( $('input').is(':checked') ) {
+                        $(this).next('label').html('<i class="fa fa-check icon" style="font-size: 14px"></i>');
+                    } else {
+                        $(this).next('label').css('content', 'counter(number)""')
+                    }
+                }
+
+                $('input').change(check());
+/*                 $('input').change(function() {
+                    $(this).next('label').html('<i class="fa fa-check icon" style="font-size: 14px"></i>');
+                });
+                if ( $('label').child('i') ) {
+                    $('input').change(function() {
+                        $(this).next('label').html('');
+                    });
+                } */
+        });
+    </script>
+</body>
+</html>
