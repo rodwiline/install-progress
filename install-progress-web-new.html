@@ -41,8 +41,8 @@
         .bold {
             font-weight: 600;
         }
-        td .description {
-            margin-bottom: 20px;
+        td+.description {
+            padding-bottom: 10px!important;
         }
         .main-header {
             top: 0;
@@ -137,6 +137,18 @@
             margin-top: 16px;
             margin-bottom: 16px;
         }
+        .vertical-line{ 
+            width:0px;
+            z-index:1; 
+            border-right: thin solid #fff;
+            position: absolute;
+            top:15%;
+            height: 80%;
+            left: 42px;
+        }
+
+        /* MEdia Queries */ 
+
         @media screen and (min-width: 992px) {
             td, th {
                 font-size: 1.2vw;
@@ -173,7 +185,7 @@
             .status td,
             .status th {
                 font-size: 16px;
-                line-height: 24px;
+               /*  line-height: 24px; */
             }
         }
         
@@ -203,6 +215,8 @@
   -webkit-transition: background-color .3s, top .1s;
   transition: background-color .3s, top .1s;
   box-shadow: 1px 1px 1px 1px #CCC;
+  z-index: 100;
+  border: 1px solid #fff;
 }
 .install-form label::before {
     content: counter(number)"";
@@ -213,10 +227,14 @@
   height: 0em;
   width: 0em;
   background: none;
+  z-index:99;
+  border: 1px solid #fff;
 }
 .install-form  input[type=checkbox]:checked + label,
 .install-form  input[type=checkbox]:checked + span {
   background-color: #4DA269;  
+  z-index: 99;
+  border: 1px solid #fff;
 }
 
 /* .install-form  input[type=checkbox]:checked + label:before {
@@ -334,7 +352,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-8 col-sm-12 client">
-                      <div class="col-xs-12 title">Customer Information:</div>
+                      <div class="col-xs-12 title" style="padding-bottom:12px">Customer Information:</div>
                        <div class="col-xs-12 client-container">
                          <table class="cust-info">
                              <tr>
@@ -361,72 +379,74 @@
                        </div>
                        <div class="col-xs-12 title mt48">Comments:</div>
                        <div class="col-xs-12 client-container info">
-                           <span>Your installation is schedulled for 09/19/17 @ 3PM PST.</span>
+                           <span>Your installation is scheduled for 09/19/17 @ 3PM PST.</span>
                        </div>
                     </div>
                     <div class="col-md-4 col-sm-12 status">
-                        <div class="col-xs-12 title">Installation Status:</div>
+                        <div class="col-xs-12 title" style="padding-bottom:12px">Installation Status:</div>
                         <form action="">
-                        <table class="install-form">
+                        <table class="install-form" cellspacing="0">
+                                <hr width="1" size="500" style="position:absolute;right:100px;z-index:100color:white;">
+                                <div class="vertical-line"></div>
                            <tr>
                                 <td>
-                                    <input type="checkbox" name="check" id="check1" value="1" checked />
+                                    <input type="checkbox" name="check" id="check1" value="1" checked disabled />
                                     <label for="check1"></label>
                                 </td>
                                 <td class="bold description">Documentation Received</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" name="check" id="check2" value="2" />
+                                    <input type="checkbox" name="check" id="check2" value="2" checked disabled />
                                     <label for="check2"></label>
                                 </td>
                                 <td class="bold description">Site Survey Completed</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" name="check" id="check3" value="3" />
+                                    <input type="checkbox" name="check" id="check3" value="3" checked disabled />
                                     <label for="check3"></label>
                                 </td>
                             <td class="bold description">Network Design Completed</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" name="check" id="check4" value="4" />
+                                    <input type="checkbox" name="check" id="check4" value="4" checked disabled />
                                     <label for="check4"></label>
                                 </td>
                                 <td class="bold description">Installation Plan Completed</td>
                             </tr>
                             <tr>
                             <td>
-                                <input type="checkbox" name="check" id="check5" value="5" />
+                                <input type="checkbox" name="check" id="check5" value="5" checked disabled />
                                 <label for="check5"></label>
                             </td>
                                 <td class="bold description">Building Installation Plan Approved</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" name="check" id="check6" value="6" />
+                                    <input type="checkbox" name="check" id="check6" value="6" checked disabled />
                                     <label for="check6"></label>
                                 </td>
                                 <td class="bold description">Provisioning/Configuration Complete</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" name="check" id="check7" value="7" />
+                                    <input type="checkbox" name="check" id="check7" value="7" checked disabled />
                                     <label for="check7"></label>
                                 </td>
-                                <td class="bold description">Installation Schedulled</td>
+                                <td class="bold description">Installation Scheduled</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" name="check" id="check8" value="8" />
+                                    <input type="checkbox" name="check" id="check8" value="8" disabled />
                                     <label for="check8"></label>
                                 </td>
                                 <td class="bold description">Installation Complete</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" name="check" id="check9" value="9" />
+                                    <input type="checkbox" name="check" id="check9" value="9" disabled />
                                     <label for="check9"></label>
                                 </td>
                                 <td class="bold description">Certification &amp; Activation Complete</td>
